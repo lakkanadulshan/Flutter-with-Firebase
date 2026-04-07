@@ -12,7 +12,12 @@
           "package_name": "com.example.brew_crew"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "707934860412-avrjpdfl5bup9j6cujd7082i9tjab4ef.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCzG4GK_dxuWVyHiKBviuOwlQcCsVEJcIo"
@@ -20,7 +25,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "707934860412-avrjpdfl5bup9j6cujd7082i9tjab4ef.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

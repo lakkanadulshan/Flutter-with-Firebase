@@ -20,19 +20,20 @@ class _SignInState extends State<SignIn> {
       appBar: AppBar(
         title: const Text('Sign in'),
       ),
-      body: ElevatedButton(
-        onPressed: () async{
-          await _auth.signOut();
-          dynamic result = await _auth.signinanonymous();
-          if(result == null){
-            print('Error signing in');
-          }else{
-            print('Signed in successfully');
-            print(result.uid);
-            
-          }
-        }, 
-        child: const Text('Sign in Anonymously')),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () async {
+            dynamic result = await _auth.signinanonymous();
+            if (result == null) {
+              print('Error signing in');
+            } else {
+              print('Signed in successfully');
+              
+            }
+          },
+          child: const Text('Sign in Anonymously'),
+        ),
+      ),
     );
   }
 }
