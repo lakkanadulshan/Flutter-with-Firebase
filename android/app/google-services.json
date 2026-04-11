@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "707934860412-p1tvqf7m6oemb7912qqhtfgsbim02u58.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.brew_crew",
+            "certificate_hash": "d6456d721cf167f9edc27d05361e4fff9f334c8c"
+          }
+        },
+        {
           "client_id": "707934860412-avrjpdfl5bup9j6cujd7082i9tjab4ef.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +37,13 @@
             {
               "client_id": "707934860412-avrjpdfl5bup9j6cujd7082i9tjab4ef.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "707934860412-7f6m63p2p9ks8vb6kiqcmr619q82kq5j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.brewCrew"
+              }
             }
           ]
         }

@@ -82,11 +82,12 @@ class _SignInState extends State<SignIn> {
                         password,
                       );
 
+                      if (!context.mounted) return;
+
                       if (result == null) {
                         print('Error signing in');
                       } else {
                         print('Signed in successfully');
-                        if (!mounted) return;
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(builder: (_) => const Home()),
                         );
@@ -99,7 +100,24 @@ class _SignInState extends State<SignIn> {
                 ),
                 const SizedBox(height: 10),
                 OutlinedButton.icon(
-                  onPressed: () {},
+                  onPressed: () async {
+                    var user = await _auth.signInWithGoogle();
+                    if (!context.mounted) return;
+
+                    if (user != null) {
+                      Navigator.of(context).pushReplacement(
+                        MaterialPageRoute(builder: (_) => const Home()),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            _auth.lastAuthError ?? 'Google sign in failed',
+                          ),
+                        ),
+                      );
+                    }
+                  },
                   icon: Image.asset(
                     'assets/images/google-logo-removebg-preview.png',
                     width: 20,
@@ -113,11 +131,12 @@ class _SignInState extends State<SignIn> {
                     try {
                       dynamic result = await _auth.signinanonymous();
 
+                      if (!context.mounted) return;
+
                       if (result == null) {
                         print('Error signing in as guest');
                       } else {
                         print('Guest sign in successful');
-                        if (!mounted) return;
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(builder: (_) => const Home()),
                         );
