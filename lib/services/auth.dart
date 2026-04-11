@@ -28,10 +28,15 @@ class AuthServices {
     }
   }
     // Sign out
-  Future signOut() async {
-    await _auth.signOut();
-  }
+  Future signout() async {
+    try {
+      return await _auth.signOut();
+    } catch (error) {
+      print(error.toString());
+      return null;
+    }
   }
   //Signin using email and password
   //Sign in with google
   //Signout
+}
