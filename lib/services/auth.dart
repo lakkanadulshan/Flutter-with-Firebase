@@ -82,27 +82,23 @@ class AuthServices {
             '707934860412-avrjpdfl5bup9j6cujd7082i9tjab4ef.apps.googleusercontent.com',
       );
 
-      // Trigger Google sign-in flow (v7 API)
       final GoogleSignInAccount googleUser = await googleSignIn.authenticate();
-
-      // Get tokens from Google account
       final GoogleSignInAuthentication googleAuth = googleUser.authentication;
+
       if (googleAuth.idToken == null) {
+        _lastAuthError = 'Google sign-in did not return an id token.';
         return null;
       }
 
-      // Firebase accepts idToken for Google auth on mobile
       final OAuthCredential credential = GoogleAuthProvider.credential(
         idToken: googleAuth.idToken,
       );
 
-      // Sign in to Firebase with the credential
       final UserCredential userCredential = await _auth.signInWithCredential(
         credential,
       );
-      final User? user = userCredential.user;
 
-      return _userWithFirebaseUserUid(user);
+      return _userWithFirebaseUserUid(userCredential.user);
     } on GoogleSignInException catch (error) {
       _lastAuthError = error.description ?? 'Google sign-in was cancelled.';
       debugPrint('Google sign-in failed (${error.code}): ${error.description}');

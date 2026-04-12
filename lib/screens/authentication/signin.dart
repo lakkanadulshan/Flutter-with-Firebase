@@ -40,9 +40,8 @@ class _SignInState extends State<SignIn> {
                 const Center(
                   child: CircleAvatar(
                     radius: 42,
-                    backgroundImage: AssetImage(
-                      'assets/images/profile-pic.avif',
-                    ),
+                    backgroundColor: Color(0xFF1A1A1A),
+                    child: Icon(Icons.person, size: 42, color: Colors.white70),
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -101,7 +100,7 @@ class _SignInState extends State<SignIn> {
                 const SizedBox(height: 10),
                 OutlinedButton.icon(
                   onPressed: () async {
-                    var user = await _auth.signInWithGoogle();
+                    final user = await _auth.signInWithGoogle();
                     if (!context.mounted) return;
 
                     if (user != null) {
